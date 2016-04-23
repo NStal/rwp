@@ -1,0 +1,41 @@
+{
+    "manifest_version": 2,
+    "name": "rss extractor",
+    "description": "extract the rss into rwp format",
+    "version": "1.1.1",
+    "permissions": [
+        "tabs",
+        "<all_urls>",
+        "http://*/",
+        "https://*/",
+        "webRequest",
+        "webRequestBlocking"
+        
+    ],
+    "browser_action": {
+        "default_icon": "icon.ico"
+    },
+    "content_scripts":[
+        {
+            "matches":["<all_urls>"]
+            ,"js":[
+                "async.js"
+                ,"jquery.js"
+                ,"leaf.js"
+                ,"analyze.js"
+                ,"sanitizer.js"
+                ,"contentScript.js"
+            ]
+            ,"css":["style.css"]
+        }
+    ],
+    "web_accessible_resources":[
+        "template/*"
+    ]
+    ,"background":{
+        "scripts":[
+            "background.js"
+        ]
+        ,"persistent":true
+    }
+}
